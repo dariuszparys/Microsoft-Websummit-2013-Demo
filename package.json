@@ -1,0 +1,27 @@
+{
+    "name":             "DemoApp",
+    "version":          "0.1.0",
+    "author":           "writeline",
+    "description":      "This is just for a demo",
+    "contributors": [
+        { 
+            "name":     "Dariusz Parys", 
+            "email":    "dparys@microsoft.com"
+        }
+    ],
+    "main":             "./app.js",
+    "keywords": [
+        "azure",
+        "demo"
+    ],
+    "dependencies" : {        
+        "director":         ">=1.1.10",
+        "jade":             ">=0.28.1",
+        "union":            ">=0.3.6"
+    },
+    "noAnalyze":        "true",
+    "license":          "Apache",
+    "engines": {
+        "node": ">=0.6.14"
+    }
+}
