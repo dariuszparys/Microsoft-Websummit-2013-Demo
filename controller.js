@@ -3,7 +3,19 @@
 var jade = require('jade'),
     fs = require('fs'),
     formidable = require('formidable'),
-    util = require('util');
+    util = require('util'),
+    azure = require('azure');
+
+process.env.AZURE_STORAGE_ACCOUNT = "dpdeployments";
+process.env.AZURE_STORAGE_ACCESS_KEY = "oKZ5O8MAlqHEOF0rq/7eSwCRirvdjySpAHe2jTuMTZGZHpYZFARSmgm33hXRK1ZVxq0/x5YzCIZjVZf+MxJu6Q==";
+
+var blobService = azure.createBlobService();
+blobService.createContainerIfNotExists('uploads', { publicAccessLevel: 'blob' }, function (error) {
+    if (error) {
+        console.dir(error);
+        return;
+    }
+});
 
 function getRenderFunction(name) {
     var path = __dirname + '/' + name + '.jade';
@@ -60,4 +72,18 @@ exports.upload = function () {
                 res.end('sucess: Uploaded file(s) ' + util.inspect({ fields: fields, files: files }));
             }
         });
+}
+
+exports.showMusic = function () {
+    var res = this.res,
+        req = this.req;
+
+    // read blobs from Windows Azure Storage
+    blobService.listBlobs('uploads', function (error, blobs) {
+        if (!error) {
+            var renderFunction = getRenderFunction('music');
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.end(renderFunction({ blobs: blobs }));
+        }
+    });
 }

@@ -18,7 +18,8 @@
         "director":         ">=1.1.0",
         "jade":             ">=0.28.1",
         "union":            ">=0.3.6",
-        "formidable":       ">=1.0.11"
+        "formidable":       ">=1.0.11",
+        "azure":            ">=0.6.10"
     },
     "noAnalyze":        "true",
     "license":          "Apache",

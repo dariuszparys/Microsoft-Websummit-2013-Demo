@@ -26,6 +26,7 @@ var server = union.createServer({
 router.get('/', controller.showRoot);
 router.get('/upload', controller.showUploadForm);
 router.post('/upload', {stream: true }, controller.upload);
+router.get('/music', controller.showMusic);
 
 server.listen(port);
 console.log('server listening on localhost:5000');

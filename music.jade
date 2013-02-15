@@ -1,0 +1,7 @@
+!!!
+html
+h1 Available music
+ul
+  each blob in blobs
+    li #{blob.name}
+      audio(controls, src='#{blob.url}')
