@@ -15,7 +15,7 @@
         "demo"
     ],
     "dependencies" : {        
-        "director":         ">=1.1.10",
+        "director":         ">=1.1.0",
         "jade":             ">=0.28.1",
         "union":            ">=0.3.6",
         "formidable":       ">=1.0.11"
