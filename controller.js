@@ -62,6 +62,12 @@ exports.upload = function () {
                 contentType: file.type
             };
 
+            blobService.createBlockBlobFromFile('uploads', file.name, file.path, options, function (error) {
+                if (error) {
+                    console.dir(error);
+                }
+            })
+
             console.log("file path: " + file.path);
         })
         .parse(req, function (err, fields, files) {
