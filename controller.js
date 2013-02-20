@@ -6,8 +6,8 @@ var jade = require('jade'),
     util = require('util'),
     azure = require('azure');
 
-process.env.AZURE_STORAGE_ACCOUNT = "dpdeployments";
-process.env.AZURE_STORAGE_ACCESS_KEY = "oKZ5O8MAlqHEOF0rq/7eSwCRirvdjySpAHe2jTuMTZGZHpYZFARSmgm33hXRK1ZVxq0/x5YzCIZjVZf+MxJu6Q==";
+process.env.AZURE_STORAGE_ACCOUNT = "<YOUR STORAGE ACCOUNT HERE";
+process.env.AZURE_STORAGE_ACCESS_KEY = "<YOUR STORAGE ACCOUNT KEY HERE";
 
 var blobService = azure.createBlobService();
 blobService.createContainerIfNotExists('uploads', { publicAccessLevel: 'blob' }, function (error) {
